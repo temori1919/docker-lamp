@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+  # centos7 apache2.4.*(http2)
+  web:
+    build: ./web
+    ports:
+      - '80:80'
+      - '443:443'
+    depends_on:
+      - php
+    volumes:
+      - ./code:/var/www/html
+      - ./web/logs:/var/log/httpd
+      - cert:/etc/ssl/private
+    restart: always
+    env_file: .env
+  # php-fpm 
+  php:
+    build: ./php
+    depends_on:
+      - db
+    ports:
+      - '9000'
+    volumes:
+      - ./code:/var/www/html
+    restart: always
+    env_file: .env
+  # mariaDB
+  db:
+    build: ./db
+    restart: always
+    env_file: .env
+    ports:
+      - 3306:3306
+    volumes:
+    - ./db/logs:/var/log/mysql
+    - datastore:/var/lib/mysql
+  # phpMyadmin
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    env_file: .env
+    ports:
+     - 8080:80
+  # php Composer
+  composer:
+    image: composer
+
+volumes:
+  cert:
+  datastore:
