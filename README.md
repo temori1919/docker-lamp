@@ -58,6 +58,7 @@ docker-lamp/php/xdebug.ini
 If you want to install more PHP extension, 
 add it to the Dockerfile.
 
+
 See more infomation
 
 [PHP official repository](https://hub.docker.com/_/php/)
@@ -78,6 +79,15 @@ you can avoid them with the following options.
 docker-compose run --rm -v $(pwd):/app composer install --ignore-platform-reqs --no-scripts
 ```
 
+
 See more infomation
 
 [Composer official repository](https://hub.docker.com/_/composer/)
+
+
+## More information
+If you are using Laravel, 
+add the following ip to hosts for migration cmd.
+```
+127.0.0.1 db
+```
