@@ -33,12 +33,13 @@ phpMyAdmin is [localhost:8080].
 
 ## Constitution
 ```
-docker-lamp
+docker-lamp/
 ├── web
 │   ├── logs
 │   ├── Dockerfile
 │   └── docker.conf  #Copy to /etc/httpd/conf.d
 ├── php
+│   ├── xdebug.ini   #Copy to /usr/local/etc/php/conf.d
 │   └── Dockerfile
 ├── db
 │   ├── logs
@@ -47,7 +48,18 @@ docker-lamp
 ├── code  #Mounted on /var/www/html
 └── docker-compose.yml
 ```
+## PHP
+The PHP extension installs only mailparse and xdebug.
+The xdebug configuration file is in the following directory.
+```bash
+docker-lamp/php/xdebug.ini
+```
 
+If you want to install more PHP extension, 
+add it to the Dockerfile.
+
+See more infomation
+[PHP official repository](https://hub.docker.com/_/php/)
 
 ## Composer
   
@@ -57,3 +69,13 @@ You can run docker container composer.
 cd docker-lamp/code/[yourapp]
 docker-compose run --rm -v $(pwd):/app composer install
 ```
+
+
+If you need specific PHP extensions, 
+you can avoid them with the following options.
+```bash
+docker-compose run --rm -v $(pwd):/app composer install --ignore-platform-reqs --no-scripts
+```
+
+See more infomation
+[Composer official repository](https://hub.docker.com/_/composer/)
