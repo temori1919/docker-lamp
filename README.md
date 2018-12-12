@@ -59,6 +59,7 @@ If you want to install more PHP extension,
 add it to the Dockerfile.
 
 See more infomation
+
 [PHP official repository](https://hub.docker.com/_/php/)
 
 ## Composer
@@ -78,4 +79,5 @@ docker-compose run --rm -v $(pwd):/app composer install --ignore-platform-reqs -
 ```
 
 See more infomation
+
 [Composer official repository](https://hub.docker.com/_/composer/)
