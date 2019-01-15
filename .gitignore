@@ -1,1 +1,8 @@
 .DS_Store
+/db/logs/*
+!/db/logs/.gitkeep
+/code/*
+!/code/example
+!/code/default.yaml.example
+/web/logs/*
+!/web/logs/.gitkeep
