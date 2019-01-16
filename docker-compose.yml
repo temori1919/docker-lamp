@@ -50,6 +50,7 @@ services:
   node:
     build: ./node
     restart: always
+    tty: true
     ports:
       - '8081'
     depends_on:

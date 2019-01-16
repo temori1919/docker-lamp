@@ -3,6 +3,7 @@
 !/db/logs/.gitkeep
 /code/*
 !/code/example
-!/code/default.yaml.example
+!/code/gulpfile.js
+!/code/config/default.yaml.example
 /web/logs/*
 !/web/logs/.gitkeep
