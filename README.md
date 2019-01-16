@@ -8,6 +8,7 @@ It consists following.
 - mariadb
 - phpMyAdmin
 - composer
+- node js (Gulp)
 
 ## Installation
 
@@ -46,6 +47,10 @@ docker-lamp/
 │   ├── my.cnf  #Copy to /etc/mysql/conf.d
 │   └── Dockerfile
 ├── code  #Mounted on /var/www/html
+│   ├── example
+|   ├── gulpfile.js
+│   └── config
+|      └── default.json.example
 └── docker-compose.yml
 ```
 ## PHP
@@ -84,6 +89,40 @@ See more infomation
 
 [Composer official repository](https://hub.docker.com/_/composer/)
 
+## Gulp
+If you want to run PHPUnit with Gulp,
+make new default.json from code/config/default.json.example,
+
+then, rewrite like below.
+```js
+{
+	"config": {
+      # 'targets' is file of monitored.
+  		"targets": [
+  			"./your_app/config/**/*.php",
+			"./your_app/database/**/*.php"
+  		],
+      # 'phpunitCmd' is commond path.
+  		"phpunitCmd": "./your_app/vendor/bin/phpunit",
+      # 'phpunitFile' is path to phpunit.
+  		"phpunitFile": "./your_app/phpunit.*"
+  	}
+}
+```
+
+Run gulp.
+```bash
+docker-compose run -v --rm --no-deps node gulp watch
+```
+
+When you stop gulp,
+```bash
+# find container of "gulp watch".
+docker ps
+
+# remove container.
+docker kill [container_id]
+```
 
 ## More information
 If you are using Laravel, 
