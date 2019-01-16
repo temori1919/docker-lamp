@@ -1,0 +1,10 @@
+{
+	"config": {
+  		"targets": [
+  			"./your_app/config/**/*.php",
+			"./your_app/database/**/*.php"
+  		],
+  		"phpunitCmd": "./your_app/vendor/bin/phpunit",
+  		"phpunitFile": "./your_app/phpunit.*"
+  	}
+}

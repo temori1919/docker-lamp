@@ -46,6 +46,17 @@ services:
   # php Composer
   composer:
     image: composer
+  # node js (include gulp)
+  node:
+    build: ./node
+    restart: always
+    tty: true
+    ports:
+      - '8081'
+    depends_on:
+      - web
+    volumes:
+      - ./code:/var/www/html
 
 volumes:
   cert:

@@ -1,1 +1,11 @@
 .DS_Store
+/db/logs/*
+!/db/logs/.gitkeep
+/code/*
+!/code/example
+!/code/gulpfile.js
+!/code/config
+/code/config/*
+!/code/config/default.json.example
+/web/logs/*
+!/web/logs/.gitkeep
