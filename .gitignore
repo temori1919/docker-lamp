@@ -4,8 +4,8 @@
 /code/*
 !/code/example
 !/code/gulpfile.js
-!/code/config/
+!/code/config
 /code/config/*
-!/code/config/default.yaml.example
+!/code/config/default.json.example
 /web/logs/*
 !/web/logs/.gitkeep
