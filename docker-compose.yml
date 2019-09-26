@@ -25,6 +25,9 @@ services:
       - ./code:/var/www/html
     restart: always
     env_file: .env
+    # For site relation
+    # extra_hosts:
+    #   - teicon.lvh.me:$DOCKER_HOST_IP
   # mariaDB
   db:
     build: ./db

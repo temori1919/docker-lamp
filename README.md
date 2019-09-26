@@ -24,9 +24,12 @@ docker-compose up -d
 ## How to use
 Code dir is documentroot.
 Put your app under the documentroot.
-then you can access [your app dir].lvh.me
+then you can access like below.
 
-  
+```sh
+ [your app dir].[public dir].lvh.me
+```
+
 You can access either http or https.
 
 phpMyAdmin is [localhost:8080].
@@ -69,7 +72,7 @@ See more infomation
 [PHP official repository](https://hub.docker.com/_/php/)
 
 ## Composer
-  
+
 You can run docker container composer.
 ```bash
 # move your app dir
